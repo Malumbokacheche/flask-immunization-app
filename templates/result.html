@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Prediction Result</h2>
+<div class="card">
+    <div class="card-body">
+        <h4>Prediction: 
+            <span class="badge {% if prediction == 1 %}bg-danger{% else %}bg-success{% endif %}">
+                {{ "Default" if prediction == 1 else "Not Default" }}
+            </span>
+        </h4>
+       
+        <hr>
+        <h5>Recommendations</h5>
+        <ul>
+            {% for rec in recommendations %}
+                <li>{{ rec|safe }}</li>
+            {% endfor %}
+        </ul>
+        <hr>
+        <h5>Input Summary</h5>
+        <table class="table table-sm">
+            <tr><td><strong>Child Age:</strong></td><td>{{ data.Age_of_child }} years</td></tr>
+            <tr><td><strong>Woman Age:</strong></td><td>{{ data.Age_of_woman }} years</td></tr>
+            <tr><td><strong>Wealth Index:</strong></td><td>{{ data.Wealth_index_quintile }}</td></tr>
+            <tr><td><strong>Education Level:</strong></td><td>{{ data.Highest_level_of_school_attended }}</td></tr>
+            <tr><td><strong>Radio Listening:</strong></td><td>{{ data.Frequency_of_listening_to_radio }}</td></tr>
+            <tr><td><strong>Mobile Usage:</strong></td><td>{{ data.Mobile_phone_usage }}</td></tr>
+            <tr><td><strong>Prenatal Care:</strong></td><td>{{ data.Received_prenatal_care }}</td></tr>
+            <tr><td><strong>Marital Status:</strong></td><td>{{ data.Marital_Status }}</td></tr>
+        </table>
+        <a href="{{ url_for('predict') }}" class="btn btn-secondary">New Prediction</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+    .login-page {
+        min-height: 85vh;
+        background-image: url("{{ url_for('static', filename='images/vaccine_bg.jpg') }}");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+    .login-page::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); /* dark overlay for readability */
+        z-index: 1;
+    }
+    .login-card {
+        position: relative;
+        z-index: 2;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        max-width: 420px;
+        width: 100%;
+    }
+    .login-card h3 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #0d6efd;
+    }
+    .login-card .btn-primary {
+        width: 100%;
+        padding: 10px;
+        font-weight: 600;
+    }
+    .login-card .form-control {
+        padding: 12px;
+    }
+    .login-card .form-label {
+        font-weight: 500;
+    }
+</style>
+
+<div class="login-page">
+    <div class="login-card">
+        <h3>💉 Immunization Predictor</h3>
+        <p class="text-muted text-center">Protecting children from vaccine preventable diseases</p>
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            <div class="mb-3">
+                {{ form.username.label(class="form-label") }}
+                {{ form.username(class="form-control", placeholder="Enter your username") }}
+            </div>
+            <div class="mb-3">
+                {{ form.password.label(class="form-label") }}
+                {{ form.password(class="form-control", placeholder="Enter your password") }}
+            </div>
+            {{ form.submit(class="btn btn-primary") }}
+        </form>
+        
+    </div>
+</div>
+{% endblock %}

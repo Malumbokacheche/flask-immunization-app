@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Dashboard</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card text-white bg-info">
+            <div class="card-body">
+                <h5 class="card-title">Total Predictions</h5>
+                <p class="card-text display-6">{{ total }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-white bg-danger">
+            <div class="card-body">
+                <h5 class="card-title">Default Predictions</h5>
+                <p class="card-text display-6">{{ default_count }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-white bg-success">
+            <div class="card-body">
+                <h5 class="card-title">Default Rate</h5>
+                <p class="card-text display-6">{{ "%.1f"|format(default_rate) }}%</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% if total > 0 %}
+<div class="card mt-4">
+    <div class="card-header">Monthly Trends (Last 6 Months)</div>
+    <div class="card-body">
+        <canvas id="monthlyChart" height="100"></canvas>
+    </div>
+</div>
+
+<script>
+const ctx = document.getElementById('monthlyChart').getContext('2d');
+new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: {{ months|tojson }},
+        datasets: [
+            {
+                label: 'Total Predictions',
+                data: {{ counts|tojson }},
+                backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            },
+            {
+                label: 'Defaults',
+                data: {{ defaults|tojson }},
+                backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1
+            }
+        ]
+    },
+    options: {
+        responsive: true,
+        scales: {
+            y: { beginAtZero: true }
+        }
+    }
+});
+</script>
+{% else %}
+<div class="alert alert-info mt-4">
+    No predictions yet. Start by making a <a href="{{ url_for('predict') }}" class="alert-link">new prediction</a>.
+</div>
+{% endif %}
+
+{% endblock %}

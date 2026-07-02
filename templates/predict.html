@@ -1,0 +1,72 @@
+ {% extends "base.html" %}
+{% block content %}
+<h2>New Prediction</h2>
+<form method="POST" novalidate>
+    {{ form.hidden_tag() }}
+    <div class="row">
+        <div class="col-md-6">
+            <div class="mb-3">
+                {{ form.Age_of_child.label(class="form-label") }}
+                {{ form.Age_of_child(class="form-select") }}
+                {% for error in form.Age_of_child.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+            <div class="mb-3">
+                {{ form.Age_of_woman.label(class="form-label") }}
+                {{ form.Age_of_woman(class="form-control") }}
+                {% for error in form.Age_of_woman.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+            <div class="mb-3">
+                {{ form.Wealth_index_quintile.label(class="form-label") }}
+                {{ form.Wealth_index_quintile(class="form-select") }}
+                {% for error in form.Wealth_index_quintile.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+            <div class="mb-3">
+                {{ form.Highest_level_of_school_attended.label(class="form-label") }}
+                {{ form.Highest_level_of_school_attended(class="form-select") }}
+                {% for error in form.Highest_level_of_school_attended.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+            <div class="mb-3">
+                {{ form.Frequency_of_listening_to_radio.label(class="form-label") }}
+                {{ form.Frequency_of_listening_to_radio(class="form-select") }}
+                {% for error in form.Frequency_of_listening_to_radio.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+            <div class="mb-3">
+                {{ form.Mobile_phone_usage.label(class="form-label") }}
+                {{ form.Mobile_phone_usage(class="form-select") }}
+                {% for error in form.Mobile_phone_usage.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+            <div class="mb-3">
+                {{ form.Received_prenatal_care.label(class="form-label") }}
+                {{ form.Received_prenatal_care(class="form-select") }}
+                {% for error in form.Received_prenatal_care.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+            <div class="mb-3">
+                {{ form.Marital_Status.label(class="form-label") }}
+                {{ form.Marital_Status(class="form-select") }}
+                {% for error in form.Marital_Status.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Only ONE submit button here -->
+    <div class="mt-3">
+        {{ form.submit(class="btn btn-primary") }}
+    </div>
+</form>
+{% endblock %}      

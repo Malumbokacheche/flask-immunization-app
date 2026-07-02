@@ -1,0 +1,142 @@
+/* General body styling */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Custom navbar brand */
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.4rem;
+    letter-spacing: 0.5px;
+}
+
+/* Card styling */
+.card {
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border: none;
+    transition: transform 0.2s ease-in-out;
+}
+.card:hover {
+    transform: translateY(-2px);
+}
+.card-header {
+    background-color: #f1f4f9;
+    border-bottom: 1px solid #e2e8f0;
+    font-weight: 600;
+}
+
+/* Dashboard summary cards */
+.card.text-white .card-title {
+    font-size: 1rem;
+    font-weight: 400;
+    opacity: 0.9;
+}
+.card.text-white .card-text {
+    font-size: 2.2rem;
+    font-weight: 300;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #2c7be5;
+    border-color: #2c7be5;
+    font-weight: 500;
+}
+.btn-primary:hover {
+    background-color: #1a68d4;
+    border-color: #1a68d4;
+}
+.btn-danger {
+    background-color: #e63757;
+    border-color: #e63757;
+}
+.btn-danger:hover {
+    background-color: #c92a4a;
+    border-color: #c92a4a;
+}
+
+/* Table styling */
+.table {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+.table thead th {
+    background-color: #f1f4f9;
+    border-bottom: 2px solid #dee2e6;
+    font-weight: 600;
+    color: #1a1a2e;
+}
+.table tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+/* Form styling */
+.form-control, .form-select {
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    padding: 10px 12px;
+}
+.form-control:focus, .form-select:focus {
+    border-color: #2c7be5;
+    box-shadow: 0 0 0 3px rgba(44, 123, 229, 0.15);
+}
+.form-label {
+    font-weight: 500;
+    color: #2d3748;
+}
+
+/* Alerts */
+.alert {
+    border-radius: 10px;
+    border: none;
+}
+
+/* Badge styling */
+.badge {
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+    .card.text-white .card-text {
+        font-size: 1.8rem;
+    }
+}
+
+/* Custom container max-width */
+.container {
+    max-width: 1200px;
+}
+
+/* Prediction result card */
+.result-card .card-body {
+    padding: 2rem;
+}
+.result-card .badge {
+    font-size: 1.2rem;
+    padding: 8px 20px;
+}
+
+/* Footer (optional) */
+.footer {
+    margin-top: 40px;
+    padding: 20px 0;
+    color: #6c757d;
+    border-top: 1px solid #e9ecef;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* Small helper */
+.text-muted-light {
+    color: #9aa5b5;
+}
