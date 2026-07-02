@@ -5,3 +5,6 @@ xgboost
 joblib
 pandas
 numpy
+matplotlib
+seaborn
+imbalanced-learn
