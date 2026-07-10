@@ -8,3 +8,4 @@ numpy
 matplotlib
 seaborn
 imbalanced-learn
+flask-login
