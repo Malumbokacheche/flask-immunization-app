@@ -11,3 +11,5 @@ imbalanced-learn
 flask-login
 flask_sqlalchemy
 flask_wtf
+scikit-learn==1.3.2
+
